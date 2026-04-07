@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Car Rating AI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Car Evaluator</h1>
+            <p>Powered by a Tuned Random Forest Pipeline</p>
+        </header>
+
+        <form id="prediction-form">
+            <div class="input-grid">
+                <div class="form-group">
+                    <label>Buying Price</label>
+                    <select id="buying" required>
+                        <option value="low">Low</option>
+                        <option value="med">Medium</option>
+                        <option value="high">High</option>
+                        <option value="vhigh">Very High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Maintenance</label>
+                    <select id="maint" required>
+                        <option value="low">Low</option>
+                        <option value="med">Medium</option>
+                        <option value="high">High</option>
+                        <option value="vhigh">Very High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Doors</label>
+                    <select id="doors" required>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5more">5+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Capacity</label>
+                    <select id="persons" required>
+                        <option value="2">2 Persons</option>
+                        <option value="4">4 Persons</option>
+                        <option value="more">More than 4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Boot Size</label>
+                    <select id="lug_boot" required>
+                        <option value="small">Small</option>
+                        <option value="med">Medium</option>
+                        <option value="big">Big</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Safety</label>
+                    <select id="safety" required>
+                        <option value="low">Low</option>
+                        <option value="med">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" id="submit-btn">Run AI Analysis</button>
+        </form>
+
+        <div id="result-card" class="hidden">
+            <h2>Predicted Rating</h2>
+            <div id="stars-container" class="stars"></div>
+            <p id="explanation-text"></p>
+            
+            <div class="chart-container">
+                <h3>AI Decision Weights</h3>
+                <canvas id="importanceChart"></canvas>
+            </div>
+        </div>
+        
+        <div id="error-message" class="hidden error"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
